@@ -8,10 +8,10 @@
         <option value="3">Three</option>
     </select>
 
-    <div class="bg-white text-white p-5 d-flex flex-column justify-content-center" >
+    <div class="bg-white text-white p-5" >
         <div class="numero-personaggi p-3">{{("Found "+store.count+" characters")}}</div>
 
-        <div class="row mt-4 g-2">
+        <div class="row mt-4 g-2 p-2">
             <div v-for="(element,i) in store.results" class="card col-3 bg-card rounded-0 text-center mx-1" style="width: 18rem;">
                 <h5 class="mt-4">{{element.name}}</h5>
                 <div class="card-body">
