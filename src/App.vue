@@ -1,6 +1,20 @@
 <script>
+import axios from "axios";
+import {store} from "./store"
 export default{
   components: {Page},
+  data(){
+    store
+  },
+  methods:{
+    searchGender(filtri){
+      axios.get("https://rickandmortyapi.com/api/character/?gender="+filtri)
+        .then( resp=> {
+          this.store= resp.data;
+          console.log(this.store);
+        }); 
+    }
+  }
 }
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Page from './components/Page.vue';
@@ -8,9 +22,9 @@ import Page from './components/Page.vue';
 
 <template>
 <div class="text-white">
-  <h1 class="ms-3 mt-2">Breacking Wars Api</h1>
+  <h1 class="ms-3 mt-2">Breacking Rick Api</h1>
 </div>
-<Page/>
+<Page @search="searchGender"/>
 </template>
 
 <style lang="scss">
