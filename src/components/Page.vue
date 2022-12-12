@@ -40,7 +40,8 @@ export default{
         let currentPage=0;
         axios.get("https://rickandmortyapi.com/api/character"+"?page="+currentPage)
         .then( resp=> {
-            this.store= resp.data;
+            this.store.results= resp.data.results;
+            this.store.info= resp.data.info;
             console.log(this.store);
         }); 
     },

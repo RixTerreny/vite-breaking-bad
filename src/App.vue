@@ -4,13 +4,17 @@ import {store} from "./store"
 export default{
   components: {Page},
   data(){
-    store
+    return{
+      store
+    }
+
   },
   methods:{
     searchGender(filtri){
       axios.get("https://rickandmortyapi.com/api/character/?gender="+filtri)
         .then( resp=> {
-          this.store= resp.data;
+          this.store.results= resp.data.results;
+          this.store.info= resp.data.info;
           console.log(this.store);
         }); 
     }
